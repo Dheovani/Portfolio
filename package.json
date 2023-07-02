@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.1.0",
-  "homepage": "https://dheovani.github.io/Site",
+  "homepage": "https://dheovani.github.io/portfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
