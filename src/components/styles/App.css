@@ -50,7 +50,12 @@ footer {
   text-align: center;
   justify-content: center;
   bottom: 0;
-  position: fixed;
+  margin-top: 1%;
+}
+
+footer img {
+  margin: .5%;
+  border: .5px solid rgba(0, 0, 0, 0.5);
 }
 
 @media(max-width: 1600px) {

@@ -40,7 +40,17 @@ function App() {
           <Certifications />
           <Skills />
       </main>
-      <footer></footer>
+      <footer>
+        <a href="https://www.linkedin.com/in/dheovani-xavier-da-cruz/" target="_blank" rel="nofollow">
+          <img id="linkedin" alt="linkedin_icon"
+            src="https://img.shields.io/badge/-LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" />
+        </a>
+        
+        <a href="mailto:dheovani_xavier@outlook.com" target="_blank" rel="nofollow">
+          <img id="outlook" alt="outlook_icon"
+            src="https://img.shields.io/badge/-Outlook-0072C6?style=for-the-badge&logo=microsoft-outlook&logoColor=white" />
+        </a>
+      </footer>
     </>
   )
 }
