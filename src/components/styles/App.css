@@ -1,0 +1,49 @@
+header {
+  background-color: rgb(40, 40, 40);
+  color: whitesmoke;
+  height: 2vh;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding: 1% 0;
+  margin-bottom: 1%;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, .3);
+}
+
+header h2 {
+  float: left;
+  margin-left: 2%;
+}
+
+header h2::after {
+  content: '';
+  display: block;
+  width: var(--pseudo-width, 0);
+  border-bottom: 1px solid #CCC;
+}
+
+.main.menu {
+  width: 30%;
+  float: right;
+}
+
+.main.menu ul li {
+  font-weight: bold;
+  margin-left: 5%;
+  text-align: center;
+  list-style-type: none;
+  float: left;
+}
+
+.main.menu ul li:hover {
+  border-bottom: 1px solid #CCC;
+  cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+}
