@@ -1,3 +1,4 @@
+import { AboutMe } from './AboutMe';
 import { Certifications } from './Certifications';
 import { Skills } from './Skills';
 import { Start } from './Start';
@@ -35,7 +36,7 @@ function App() {
       </header>
       <main>
           <Start />
-          <section id="about-me"></section>
+          <AboutMe />
           <Certifications />
           <Skills />
       </main>

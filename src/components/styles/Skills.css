@@ -2,8 +2,6 @@
     padding: 10px;
     width: 80%;
     margin: auto;
-    backdrop-filter: blur(13.5px);
-    -webkit-backdrop-filter: blur(13.5px);
 }
 
 .skills h1 {

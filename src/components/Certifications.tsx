@@ -82,7 +82,7 @@ export const Certifications = (): JSX.Element => {
     return (
         <div className="certifications" id="certifications">
             <picture className="wrapper">
-                <h1>Certifications</h1>
+                <h1>Certificados</h1>
                 {renderCards()}
             </picture>
         </div>
