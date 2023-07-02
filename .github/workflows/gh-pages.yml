@@ -10,7 +10,7 @@ on:
   
 jobs:  
   build_and_deploy:  
-    runs-on: portfolio-latest  
+    runs-on: ubuntu-latest  
   
     strategy:  
       matrix:  
