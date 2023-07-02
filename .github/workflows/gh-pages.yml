@@ -10,7 +10,7 @@ on:
   
 jobs:  
   build_and_deploy:  
-    runs-on: profile-latest  
+    runs-on: portfolio-latest  
   
     strategy:  
       matrix:  
