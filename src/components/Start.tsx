@@ -1,4 +1,5 @@
 import profilePic from "../assets/pic.jpg";
+import { Lamp } from "./Lamp";
 import "./styles/Start.css";
 
 export const Start = (): JSX.Element => {
@@ -20,9 +21,12 @@ export const Start = (): JSX.Element => {
                     Seja bem vindo!
                     <br /><br /><br />
                 </div>
-                </div>
-            <div className="second-layer"></div>
-            <div className="third-layer"></div>
+            </div>
+
+            <Lamp />
+            
+            <div className="second-layer" id="second-layer"></div>
+            <div className="third-layer" id="third-layer"></div>
         </>
     );
 };
