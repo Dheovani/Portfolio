@@ -14,7 +14,7 @@ function App() {
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let scrolled = (winScroll / height) * 100;
 
-    title.style.setProperty('--pseudo-width', `${scrolled}%`);
+    title?.style.setProperty('--pseudo-width', `${scrolled}%`);
   };
   
   window.addEventListener('scroll', () => scrowProgress());

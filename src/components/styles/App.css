@@ -1,5 +1,5 @@
 header {
-  background-color: rgb(40, 40, 40);
+  background-color: #10458F;
   color: whitesmoke;
   height: 2vh;
   width: 100%;
@@ -8,6 +8,7 @@ header {
   padding: 1% 0;
   margin-bottom: 1%;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, .3);
+  z-index: 1000;
 }
 
 header h2 {
@@ -41,9 +42,19 @@ header h2::after {
 }
 
 footer {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    bottom: 0;
-    position: fixed;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  bottom: 0;
+  position: fixed;
+}
+
+@media(max-width: 340px) {
+  header h2 {
+    font-size: x-small;
+  }
+
+  .main.menu {
+    display: none;
+  }
 }

@@ -21,9 +21,3 @@
     text-align: justify;
     text-justify: inter-word;
 }
-
-@media(max-height: 800px) {
-    .skills {
-        height: 100%;
-    }
-}

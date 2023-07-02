@@ -41,7 +41,7 @@
     width: 100vw;
     background: rgba(27, 27, 27, 0.5);
     display: flex;
-    z-index: 999;
+    z-index: 998;
     align-items: center;
 }
 
@@ -77,4 +77,10 @@
     position: absolute;
     cursor: pointer;
     right: 0;
+}
+
+@media(max-width: 340px) {
+    .overlay-arrows {
+        font-size: 2em;
+    }
 }
