@@ -1,5 +1,6 @@
 import { Certifications } from './Certifications';
 import { Skills } from './Skills';
+import { Start } from './Start';
 import './styles/App.css'
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <h2 id="title">Dheovani Xavier da Cruz</h2>
           <nav className="main menu">
               <ul>
-                  <li onClick={() => scrollToElement('start')}>Início</li>
+                  <li onClick={() => scrollToElement('')}>Início</li>
                   <li onClick={() => scrollToElement('about-me')}>Sobre mim</li>
                   <li onClick={() => scrollToElement('certifications')}>Certificados</li>
                   <li onClick={() => scrollToElement('skills')}>Formação e experiência</li>
@@ -33,7 +34,7 @@ function App() {
           </nav>
       </header>
       <main>
-          <section id="start"></section>
+          <Start />
           <section id="about-me"></section>
           <Certifications />
           <Skills />

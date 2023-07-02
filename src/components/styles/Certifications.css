@@ -1,6 +1,7 @@
 .certifications {
     max-height: 100%;
     max-width: 100%;
+    margin-top: 2%;
 }
 
 .wrapper {
@@ -79,7 +80,7 @@
     right: 0;
 }
 
-@media(max-width: 340px) {
+@media(max-width: 400px) {
     .overlay-arrows {
         font-size: 2em;
     }
