@@ -39,7 +39,10 @@ export const Projects = (): JSX.Element => {
             xhr.send();
         });
 
-        promise.then(response => setRepositories(response));
+        promise.then(response => {
+            const repos: Array<Repository> = response as Array<Repository>;
+            setRepositories(repos);
+        });
     };
 
     const updateItemsPerPage = (): void => {
