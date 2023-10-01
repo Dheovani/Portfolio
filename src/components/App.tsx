@@ -2,11 +2,20 @@ import { AboutMe } from './AboutMe';
 import { Certifications } from './Certifications';
 import { Skills } from './Skills';
 import { Start } from './Start';
+import { Projects } from './Projects';
 import './styles/App.css'
 
 function App() {
+
   const scrollToElement = (id: string): void => {
-    location.href = `#${id}`;
+    const element: HTMLElement | null = document.getElementById(id);
+
+    if (element) {
+      const headerHeight: number = window.innerHeight / 10;
+      const yOffset: number = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+      window.scrollTo({ top: yOffset, behavior: 'smooth' });
+    }
   };
 
   const scrowProgress = (): void => {
@@ -19,7 +28,7 @@ function App() {
     title?.style.setProperty('--pseudo-width', `${scrolled}%`);
   };
   
-  window.addEventListener('scroll', () => scrowProgress());
+  window.addEventListener('scroll', scrowProgress);
 
   return (
     <>
@@ -27,19 +36,23 @@ function App() {
           <h2 id="title">Dheovani Xavier da Cruz</h2>
           <nav className="main menu">
               <ul>
-                  <li onClick={() => scrollToElement('')}>Início</li>
+                  <li onClick={() => scrollToElement('start')}>Início</li>
                   <li onClick={() => scrollToElement('about-me')}>Sobre mim</li>
                   <li onClick={() => scrollToElement('certifications')}>Certificados</li>
-                  <li onClick={() => scrollToElement('skills')}>Formação e experiência</li>
+                  <li onClick={() => scrollToElement('projects')}>Projetos</li>
+                  <li onClick={() => scrollToElement('skills')}>Formação</li>
               </ul>
           </nav>
       </header>
+
       <main>
           <Start />
           <AboutMe />
           <Certifications />
+          <Projects />
           <Skills />
       </main>
+
       <footer>
         <a href="https://www.linkedin.com/in/dheovani-xavier-da-cruz/" target="_blank" rel="nofollow">
           <img id="linkedin" alt="linkedin_icon"
@@ -52,7 +65,8 @@ function App() {
         </a>
       </footer>
     </>
-  )
+  );
+
 }
 
 export default App
