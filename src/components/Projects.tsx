@@ -116,7 +116,7 @@ export const Projects = (): JSX.Element => {
 
     return (
         <div className="projects" id='projects'>
-            <h1>Github projects</h1>
+            <h1>Projetos do Github</h1>
             <div className="my-projects">{ renderCards() }</div>
             <div className="projects-pagination">{ renderPagination() }</div>
         </div>
