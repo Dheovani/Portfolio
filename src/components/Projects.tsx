@@ -112,7 +112,7 @@ export const Projects = (): JSX.Element => {
                 }
             </ul>
         );
-    }
+    };
 
     return (
         <div className="projects" id='projects'>
