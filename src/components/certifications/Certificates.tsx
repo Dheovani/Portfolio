@@ -4,6 +4,7 @@ import git from "../../assets/Dheovani-Xavier-da-Cruz-Git-e-GitHub-20-Horas-Cert
 import js from "../../assets/Dheovani-Xavier-da-Cruz-Javascript-40-Horas-Certificado-Curso-em-Video.png";
 import sbexp from "../../assets/Spring Boot Expert JPA.png";
 import sbmcs from "../../assets/Microsserviços do 0 com Spring.png";
+import rctmt from "../../assets/React do Zero a Maestria.png";
 
 export const Certificates = [
     {
@@ -29,5 +30,9 @@ export const Certificates = [
     {
         image: sbmcs,
         alt: 'springboot-microservices'
+    },
+    {
+        image: rctmt,
+        alt: 'react-mastery'
     }
 ];
