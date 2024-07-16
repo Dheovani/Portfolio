@@ -25,7 +25,7 @@ export const Skills = (): JSX.Element => {
                         iconStyle={{background:"#000", color:"#fff"}}
                         contentStyle={{background:"#15171C", color:"white"}}
                         icon={<FaGraduationCap />}
-                        date="2020 - Currently">
+                        date="2020 - 2024">
                             <h1>Bacharel em Engenharia de Software</h1>
                             <h3>Universidade da Região de Joinville - UNIVILLE, Joinville - Santa Catarina</h3>
                     </VerticalTimelineElement>
