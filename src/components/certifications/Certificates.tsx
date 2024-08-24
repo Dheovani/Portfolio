@@ -6,6 +6,7 @@ import sbexp from "../../assets/Spring Boot Expert JPA.png";
 import sbmcs from "../../assets/Microsserviços do 0 com Spring.png";
 import rctmt from "../../assets/React do Zero a Maestria.png";
 import c_cpp from "../../assets/C e C++ - Iniciante ao avançado.png";
+import soft_eng from "../../assets/Bacharel em Engenharia de Software.png";
 
 export const Certificates = [
     {
@@ -39,5 +40,9 @@ export const Certificates = [
     {
         image: c_cpp,
         alt: 'c_cpp_beginner'
+    },
+    {
+        image: soft_eng,
+        alt: 'software_engineering_bachelor'
     }
 ];
