@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { Certificates } from "./certifications/Certificates";
-import { Modal } from "./certifications/Modal";
+import { useCallback, useMemo, useState } from "react";
+import { Certificates } from "./certs/Certificates";
+import Pagination from "./Pagination";
+import Modal from "./certs/Modal";
 import "./styles/Certifications.css";
 
 interface Image {
@@ -8,46 +9,16 @@ interface Image {
     alt: string;
 };
 
-export const Certifications = (): JSX.Element => {
+const Certifications = (): JSX.Element => {
     const [index, setIndex] = useState(0);
-    const [currentPage, setCurrentPage] = useState<number>(1);
-    const [itemsPerPage, setItemsPerPage] = useState<number>(2);
     const [clickedImage, setClickedImage] = useState<Image | null>(null);
 
-    const updateItemsPerPage = (): void => {
-        const itemsPerPage: number = window.innerWidth < 1360 ? 3 : 4;
-        setItemsPerPage(itemsPerPage);
-    };
-
-    useEffect(() => {
-        updateItemsPerPage();
-
-        window.addEventListener("resize", updateItemsPerPage);
-    }, []);
-
-    const calculatePageNumbers = (): Array<number> => {
-        const totalPages = Math.ceil(Certificates.length / itemsPerPage);
-        
-        return Array.from({ length: totalPages }, (_, index) => index + 1);
-    };
-
-    const getCurrentItems = (): Array<Image> => {
-        const indexOfLastItem = currentPage * itemsPerPage;
-        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-        return Certificates.slice(indexOfFirstItem, indexOfLastItem);
-    };
-
-    const handlePageChange = (event: any): void => {
-        setCurrentPage(Number(event.target.id));
-    };
-
-    const handleClick = (img: Image, index: number): void => {
+    const handleClick = useCallback((img: Image, index: number): void => {
         setIndex(index);
         setClickedImage(img);
-    };
+    }, [setIndex, setClickedImage]);
 
-    const handleRotationRight = (): void => {
+    const handleRotationRight = useCallback((): void => {
         const totalLength: number = Certificates.length;
 
         if (index + 1 >= totalLength) {
@@ -63,9 +34,9 @@ export const Certifications = (): JSX.Element => {
 
         setClickedImage(nextImg);
         setIndex(nextIndex);
-    };
+    }, [index, setIndex, setClickedImage]);
 
-    const handleRotationLeft = (): void => {
+    const handleRotationLeft = useCallback((): void => {
         const totalLength: number = Certificates.length;
 
         if (index === 0) {
@@ -81,58 +52,27 @@ export const Certifications = (): JSX.Element => {
 
         setClickedImage(nextImg);
         setIndex(nextIndex);
-    };
+    }, [index, setIndex, setClickedImage]);
 
-    const renderCards = (): JSX.Element => (
-        <>
-            {
-                getCurrentItems().map((img: Image, index: number) => (
-                    <img
-                        key={index}
-                        src={img.image}
-                        alt={img.alt}
-                        onClick={() => handleClick(img, index)}
-                    />
-                ))
-            }
-            {
-                clickedImage &&
-                <Modal
-                    clickedImg={clickedImage}
-                    handleRotationLeft={() => handleRotationLeft()}
-                    handleRotationRight={() => handleRotationRight()}
-                    setClickedImage={(img: Image | null) => setClickedImage(img)}
-                />
-            }
-        </>
-    );
-
-    const renderPagination = (): JSX.Element => (
-        <div className="certificates-pagination">
-            <ul className="cert-pagination">
-                {
-                    calculatePageNumbers().map((number) => (
-                        <li
-                            key={number}
-                            id={String(number)}
-                            onClick={handlePageChange}
-                            className={currentPage === number ? "active" : ""}>
-                            {number}
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
-    );
+    const Certifications = useMemo(() => Certificates.map((img: Image, index: number) => (
+        <img key={index} src={img.image} alt={img.alt} onClick={() => handleClick(img, index)} />
+    )), [handleClick]);
 
     return (
         <div className="certifications" id="certifications">
             <picture className="wrapper">
-                <h1>Certificados</h1>
-                {renderCards()}
+                <Pagination id="certs" title="Certificados" enforceRows={1} items={Certifications} />
+                {clickedImage && (
+                    <Modal
+                        clickedImg={clickedImage}
+                        handleRotationLeft={handleRotationLeft}
+                        handleRotationRight={handleRotationRight}
+                        setClickedImage={(img: Image | null) => setClickedImage(img)}
+                    />
+                )}
             </picture>
-
-            { renderPagination() }
         </div>
     );
 };
+
+export default Certifications;

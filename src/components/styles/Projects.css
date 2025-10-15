@@ -15,18 +15,18 @@
 	word-wrap: break-word;
 }
 
-.my-projects {
+.items {
 	margin: 0px 20px;
 }
 
-.cards {
+.items-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 20px;
 }
 
 .card {
-	max-width: 375px;
+	width: 375px;
 	background-color: rgba(17, 25, 40, 0.75);
 	padding: 20px;
 	margin-bottom: 20px;
@@ -124,7 +124,7 @@
 		font-size: 2rem;
 		margin-bottom: 8px;
 	}
-	.cards {
+	.items-container {
 		grid-template-columns: repeat(2, 1fr);
 	}
 	section {
@@ -137,7 +137,7 @@
 }
 
 @media (max-width: 860px) {
-	.cards {
+	.items-container {
 		grid-template-columns: 1fr;
 	}
 	.card {
