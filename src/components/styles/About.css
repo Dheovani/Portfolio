@@ -1,7 +1,14 @@
 .about-me {
     max-height: 100%;
-    max-width: 100%;
+    max-width: 80%;
+    margin: auto;
     margin-top: 2%;
+    margin-bottom: 30px;
+    background: rgba(25, 0, 40, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 .about-me h1 {

@@ -1,6 +1,6 @@
-import "./styles/AboutMe.css";
+import "./styles/About.css";
 
-export const AboutMe = (): JSX.Element => {
+const About = (): JSX.Element => {
     return (
         <div className="about-me" id="about-me">
             <h1>Sobre mim</h1>
@@ -12,3 +12,5 @@ export const AboutMe = (): JSX.Element => {
         </div>
     );
 };
+
+export default About;
