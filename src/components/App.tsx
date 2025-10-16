@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import About from "./About";
 import Skills from "./Skills";
+import Contact from "./Contact";
 import Projects from './Projects';
 import Certifications from './Certifications';
 
@@ -13,7 +14,7 @@ export default () => (
 				<Route path="/" element={<></>} />
 				<Route path="/about" element={<About />} />
 				<Route path="/skills" element={<Skills />} />
-				<Route path="/contact" element={<></>} />
+				<Route path="/contact" element={<Contact />} />
 				<Route path="/projects" element={<Projects />} />
 				<Route path="/certifications" element={<Certifications />} />
 			</Routes>
