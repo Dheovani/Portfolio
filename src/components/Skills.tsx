@@ -16,7 +16,7 @@ const Skills = (): JSX.Element => {
             <VerticalTimeline lineColor="#2b0040" layout="1-column-left">
                 <VerticalTimelineElement
                     className="vertical-timeline-element--formation"
-                    iconStyle={{ background:"#2b0040", color:"#fff" }}
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<FaGraduationCap />}
                     date="2017 - 2019">
@@ -25,7 +25,7 @@ const Skills = (): JSX.Element => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--formation"
-                    iconStyle={{ background:"#2b0040", color:"#fff" }}
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<FaGraduationCap />}
                     date="2020 - 2024">
@@ -43,11 +43,20 @@ const Skills = (): JSX.Element => {
             <VerticalTimeline lineColor="#2b0040" layout="1-column-left">
                 <VerticalTimelineElement
                     className="vertical-timeline-element--experience"
-                    iconStyle={{ background:"#2b0040", color:"#fff" }}
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<MdWork />}
-                    date="2022 - Currently">
+                    date="2022 - 2023">
                         <h1>Fullstack Software Developer</h1>
+                        <h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                    className="vertical-timeline-element--experience"
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
+                    contentStyle={{ background:"#15171C", color:"white" }}
+                    icon={<MdWork />}
+                    date="2024 - Currently">
+                        <h1>Software Engineer</h1>
                         <h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>
                 </VerticalTimelineElement>
             </VerticalTimeline>
@@ -56,14 +65,18 @@ const Skills = (): JSX.Element => {
 
     return (
         <div className="skills" id="skills">
-            <Switch
-                onChange={setChecked}
-                checked={checked}
-                onColor="#2b0040"
-                offColor="#15171C"
-                checkedIcon={<div className="switch-icon">< MdWork /></div>}
-                uncheckedIcon={<div className="switch-icon"><FaGraduationCap /></div>}
-            />
+            <div className="switch-container">
+                <Switch
+                    onChange={setChecked}
+                    checked={checked}
+                    onColor="#2b0040"
+                    offColor="#cbbcff"
+                    onHandleColor="#cbbcff"
+                    offHandleColor="#2b0040"
+                    checkedIcon={<div className="switch-icon">< MdWork color="#cbbcff" /></div>}
+                    uncheckedIcon={<div className="switch-icon"><FaGraduationCap color="#2b0040" /></div>}
+                />
+            </div>
 
             <div className="skills-container">
                 {(checked ? Experience : Formation)}
