@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import Pagination from './Pagination';
+import Pagination from './utils/Pagination';
 import "./styles/Projects.css";
+import Loading from './utils/Loading';
 
 interface Repository {
     id: number;
@@ -25,9 +26,12 @@ const Card = (props: CardProps): JSX.Element => (
 );
 
 const Projects = (): JSX.Element => {
+    const [loading, setLoading] = useState(false);
     const [repositories, setRepositories] = useState<Array<Repository>>([]);
 
     const updateRepositories = useCallback((): void => {
+        setLoading(true);
+
         const promise = new Promise((resolve) => {
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "https://api.github.com/users/dheovani/repos");
@@ -41,8 +45,9 @@ const Projects = (): JSX.Element => {
         promise.then(response => {
             const repos: Array<Repository> = response as Array<Repository>;
             setRepositories(repos);
+            setLoading(false);
         });
-    }, [setRepositories]);
+    }, [setRepositories, setLoading]);
 
     useEffect(() => updateRepositories(), [updateRepositories]);
 
@@ -54,7 +59,7 @@ const Projects = (): JSX.Element => {
         </Card>
     )), [repositories]);
 
-    return <Pagination id="projects" title="Projetos do Github" items={RepositoryCards} />;
+    return loading ? <Loading /> : <Pagination id="projects" title="Projetos do Github" items={RepositoryCards} />;
 };
 
 export default Projects;

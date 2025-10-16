@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { Certificates } from "./certs/Certificates";
-import Pagination from "./Pagination";
+import Pagination from "./utils/Pagination";
 import Modal from "./certs/Modal";
 import "./styles/Certifications.css";
 
