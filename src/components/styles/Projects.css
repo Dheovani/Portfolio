@@ -61,9 +61,8 @@
 	outline: none;
 	background: #632ce4;
 	color: #fff;
-	border-radius: 10px;
-	max-width: 120px;
-	height: 40px;
+	border-radius: 5px;
+	height: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -76,8 +75,7 @@
 }
 
 .card-anchor:hover {
-	background: #632ce4;
-	background: transparent;
+	background: rgba(17, 25, 40, 0.75);
 	color: #ffffff;
 	text-shadow: none;
     text-decoration: underline;

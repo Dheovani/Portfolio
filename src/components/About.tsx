@@ -2,7 +2,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import "./styles/About.css";
 import { useCallback, useMemo, useState } from "react";
 
-const CollapsibleSection = ({ title, content }: { title: string, content: React.ReactNode }) => {
+const CollapsibleSection = ({ title, content }: { title: string, content: React.ReactNode }): JSX.Element => {
     const [collapsed, setCollapsed] = useState(false);
 
     const toogleCollapsed = useCallback(() => setCollapsed(!collapsed), [collapsed, setCollapsed]);

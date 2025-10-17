@@ -13,7 +13,7 @@ const Card = ({href, children}: CardProps): JSX.Element => (
     </a>
 );
 
-const Contact = () => (
+const Contact = (): JSX.Element => (
     <div className="contacts">
         <h1>Contatos</h1>
 

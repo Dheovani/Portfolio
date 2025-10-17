@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Pagination from './utils/Pagination';
-import "./styles/Projects.css";
 import Loading from './utils/Loading';
+import "./styles/Projects.css";
 
 interface Repository {
     id: number;
@@ -17,11 +17,11 @@ interface CardProps {
     children: JSX.Element;
 };
 
-const Card = (props: CardProps): JSX.Element => (
-    <div className="card" id={String(props.id)}>
-        <h3>{ props.name }</h3>
-        <p>{ props.desc }</p>
-        { props.children }
+const Card = ({ id, name, desc, children }: CardProps): JSX.Element => (
+    <div className="card" id={String(id)}>
+        <h3>{name}</h3>
+        <p>{desc}</p>
+        {children}
     </div>
 );
 
