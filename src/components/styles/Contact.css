@@ -60,9 +60,7 @@
 }
 
 .contact-card:hover {
-    background-color: #9b5bff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(123, 58, 237, 0.4);
+	border-color: #632ce4;
 }
 
 .contact-card:active {

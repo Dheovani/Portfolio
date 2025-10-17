@@ -28,6 +28,7 @@
 
 .collapsible-container:hover {
 	border-color: #632ce4;
+    cursor: pointer;
 }
 
 .collapsible-container button {
