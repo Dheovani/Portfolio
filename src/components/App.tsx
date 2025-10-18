@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
+import Home from "./Home";
 import About from "./About";
 import Skills from "./Skills";
 import Contact from "./Contact";
@@ -7,11 +8,11 @@ import Projects from './Projects';
 import Certifications from './Certifications';
 
 export default () => (
-  <BrowserRouter>
+	<BrowserRouter>
 		<Navbar />
 		<div className="p-4">
 			<Routes>
-				<Route path="/" element={<></>} />
+				<Route path="/portfolio" element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/skills" element={<Skills />} />
 				<Route path="/contact" element={<Contact />} />
@@ -19,5 +20,5 @@ export default () => (
 				<Route path="/certifications" element={<Certifications />} />
 			</Routes>
 		</div>
-  </BrowserRouter>
+  	</BrowserRouter>
 );

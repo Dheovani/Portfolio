@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = (): JSX.Element => (
     <nav className="bg-gray-800 p-4 text-white flex justify-between items-center">
         <h1 className="text-xl font-bold">
-            <Link to="/">Início</Link>
+            <Link to="/portfolio">Início</Link>
         </h1>
 
         <div className="space-x-4">
