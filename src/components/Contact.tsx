@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { SiGmail, SiMicrosoftoutlook } from "react-icons/si";
+import { FormattedMessage } from "react-intl";
 import "./styles/Contact.css";
 
 interface CardProps {
@@ -15,16 +16,16 @@ const Card = ({href, children}: CardProps): JSX.Element => (
 
 const Contact = (): JSX.Element => (
     <div className="contacts">
-        <h1>Contatos</h1>
+        <h1><FormattedMessage id="contact.title" /></h1>
 
-        <h3>Sigam-me nas redes sociais</h3>
+        <h3><FormattedMessage id="contact.social_media" /></h3>
         <div className="contacts-container">
             <Card href="https://www.linkedin.com/in/dheovani-xavier-da-cruz/">LinkedIn <FaLinkedin /></Card>
             <Card href="https://github.com/dheovani">Github <FaGithub /></Card>
             <Card href="https://www.instagram.com/dheovani.xavier/">Instagram <FaInstagram /></Card>
         </div>
 
-        <h3>Envie-me um e-mail</h3>
+        <h3><FormattedMessage id="contact.mail" /></h3>
         <div className="contacts-container">
             <Card href="mailto:dheovani_xavier@outlook.com">Outlook <SiMicrosoftoutlook /></Card>
             <Card href="mailto:ag.dhoxdc@gmail.com">Gmail <SiGmail /></Card>

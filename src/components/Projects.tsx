@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import { FormattedMessage } from 'react-intl';
 import Pagination from './utils/Pagination';
 import Loading from './utils/Loading';
 import "./styles/Projects.css";
@@ -54,12 +55,12 @@ const Projects = (): JSX.Element => {
     const RepositoryCards = useMemo(() => repositories.map((rep, index) => (
         <Card id={rep.id} name={rep.name} key={index} desc={rep.description}>
             <a className="card-anchor" href={rep.html_url} target="_blank" rel="noreferrer">
-                Acessar repositório
+                <FormattedMessage id="projects.access" />
             </a>
         </Card>
     )), [repositories]);
 
-    return loading ? <Loading /> : <Pagination id="projects" title="Projetos do Github" items={RepositoryCards} />;
+    return loading ? <Loading /> : <Pagination id="projects" title="projects.title" items={RepositoryCards} />;
 };
 
 export default Projects;

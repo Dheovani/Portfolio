@@ -61,7 +61,7 @@ const Certifications = (): JSX.Element => {
     return (
         <div className="certifications" id="certifications">
             <picture className="wrapper">
-                <Pagination id="certs" title="Certificados" enforceRows={1} items={Certifications} />
+                <Pagination id="certs" title="certifications.title" enforceRows={1} items={Certifications} />
                 {clickedImage && (
                     <Modal
                         clickedImg={clickedImage}

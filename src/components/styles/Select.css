@@ -1,0 +1,11 @@
+.select-button {
+    background-color: rgba(17, 25, 40, 0.75);
+    color: #e0d8ff;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    margin-left: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}

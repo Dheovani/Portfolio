@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
-import Switch from "react-switch";
+import { FormattedMessage } from "react-intl";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import { FaGraduationCap } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
+import Switch from "react-switch";
+
 import "react-vertical-timeline-component/style.min.css";
 import "./styles/Skills.css";
 
@@ -11,7 +13,7 @@ const Skills = (): JSX.Element => {
 
     const Formation = useMemo(() => (
         <div className="formation">
-            <h1>Formação acadêmica</h1>
+            <h1><FormattedMessage id="skills.formation.title" /></h1>
 
             <VerticalTimeline lineColor="#2b0040" layout="1-column-left">
                 <VerticalTimelineElement
@@ -20,8 +22,10 @@ const Skills = (): JSX.Element => {
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<FaGraduationCap />}
                     date="2017 - 2019">
-                        <h1>Ensino Médio</h1>
-                        <h3>E.e.b. Profª Jandira D'Avila</h3>
+                        <FormattedMessage id="skills.formation.school" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--formation"
@@ -29,8 +33,10 @@ const Skills = (): JSX.Element => {
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<FaGraduationCap />}
                     date="2020 - 2024">
-                        <h1>Bacharel em Engenharia de Software</h1>
-                        <h3>Universidade da Região de Joinville - UNIVILLE, Joinville - Santa Catarina</h3>
+                        <FormattedMessage id="skills.formation.bachelor" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
                 </VerticalTimelineElement>
             </VerticalTimeline>
         </div>
@@ -38,7 +44,7 @@ const Skills = (): JSX.Element => {
 
     const Experience = useMemo(() => (
         <div className="experience">
-            <h1>Experiência profissional</h1>
+            <h1><FormattedMessage id="skills.experience.title" /></h1>
 
             <VerticalTimeline lineColor="#2b0040" layout="1-column-left">
                 <VerticalTimelineElement
@@ -47,8 +53,10 @@ const Skills = (): JSX.Element => {
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<MdWork />}
                     date="2022 - 2023">
-                        <h1>Fullstack Software Developer</h1>
-                        <h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>
+                        <FormattedMessage id="skills.experience.dev" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--experience"
@@ -56,8 +64,10 @@ const Skills = (): JSX.Element => {
                     contentStyle={{ background:"#15171C", color:"white" }}
                     icon={<MdWork />}
                     date="2024 - Currently">
-                        <h1>Software Engineer</h1>
-                        <h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>
+                        <FormattedMessage id="skills.experience.engineer" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
                 </VerticalTimelineElement>
             </VerticalTimeline>
         </div>

@@ -1,21 +1,25 @@
+import { FormattedMessage } from "react-intl";
 import pic from "../assets/pic.jpg";
 import "./styles/Home.css";
 
 const Home = (): JSX.Element => (
     <div className="home" id="home">
-        <div className="about-container">
-            <div className="about-text">
-                <p>Olá, eu sou <b>Dheovani Xavier</b> 👋</p>
+        <div className="home-container">
+            <div className="home-text">
                 <p>
-                    Desenvolvedor full-stack especializado em arquiteturas baseadas em microsserviços.<br />
-                    Apaixonado por tecnologia, inovação e aprendizado contínuo.<br />
-                    Sou desenvolvedor backend com experiência em <b>PHP, Java e JavaScript</b>,<br />
-                    além de sólidos conhecimentos em bancos de dados SQL e arquiteturas de microsserviços.<br />
-                    Busco sempre aprimorar minhas habilidades e contribuir com soluções de alto impacto.
+                    <FormattedMessage id="home.greeting" values={{
+                        b: (chunks: React.ReactNode) => <b>{chunks}</b>
+                    }} />
+                </p>
+                <p>
+                    <FormattedMessage id="home.description" values={{
+                        b: (chunks: React.ReactNode) => <b>{chunks}</b>,
+                        br: () => <br />
+                    }} />
                 </p>
             </div>
 
-            <div className="about-image">
+            <div className="home-image">
                 <img src={pic} alt="my-pic" />
             </div>
         </div>

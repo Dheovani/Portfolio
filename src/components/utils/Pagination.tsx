@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 interface PaginationInterface {
     id: string,
@@ -79,7 +80,7 @@ const Pagination = ({ id, title, items, enforceRows, enforceCols }: PaginationIn
     
     return (
         <div className={id} id={id}>
-            <h1>{title}</h1>
+            <h1><FormattedMessage id={title} /></h1>
             <div className="items">
                 {Items}
             </div>
