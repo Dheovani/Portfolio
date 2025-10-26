@@ -5,7 +5,7 @@ import Select from "./utils/Select";
 const Navbar = (): JSX.Element => (
     <nav className="navbar">
         <h1 className="navbar-main">
-            <NavLink to="/portfolio"><FormattedMessage id="navbar.portfolio" /></NavLink>
+            <NavLink to="/"><FormattedMessage id="navbar.portfolio" /></NavLink>
         </h1>
 
         <div className="options">

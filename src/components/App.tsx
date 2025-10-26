@@ -25,12 +25,12 @@ export default () => {
 	const locale = messages[option] ? option : "pt";
 
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/Portfolio">
 			<IntlProvider locale={locale} messages={messages[locale]}>
 				<Navbar />
 				<div className="p-4">
 					<Routes>
-						<Route path="/portfolio" element={<Home />} />
+						<Route path="/" element={<Home />} />
 						<Route path="/about" element={<About />} />
 						<Route path="/skills" element={<Skills />} />
 						<Route path="/contact" element={<Contact />} />
