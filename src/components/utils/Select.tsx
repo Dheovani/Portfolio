@@ -32,9 +32,9 @@ const Select = ({ id, options }: SelectProps) => {
     const { option, setOption } = useSelectContext();
 
     return (
-        <select className="select-button" name={id} id={id}>
-            {options.map(({ value, title }) => (
-                <option value={value} selected={value === option} onClick={setOption.bind(null, value)}>
+        <select className="select-button" name={id} id={id} defaultValue={option}>
+            {options.map(({ value, title }, index) => (
+                <option key={index} value={value} onClick={setOption.bind(null, value)}>
                     {title}
                 </option>
             ))}
