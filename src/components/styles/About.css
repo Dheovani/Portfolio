@@ -4,16 +4,6 @@
 	flex-direction: column;
 }
 
-.about-me h1 {
-    color: #fff;
-	font-size: 3rem;
-	line-height: 60px;
-	text-align: center;
-	margin: 10px 0 40px 0;
-	text-shadow: 1px 1px 3px black;
-	word-wrap: break-word;
-}
-
 .collapsible-container {
 	background-color: rgba(17, 25, 40, 0.75);
     padding: 1%;
