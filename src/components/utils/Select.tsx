@@ -18,7 +18,8 @@ const SelectContext = createContext({
 export const useSelectContext = () => useContext(SelectContext);
 
 export const SelectProvider = ({ children }: ProviderProps) => {
-    const [option, setOption] = useState("pt");
+	const language = navigator.language.split("-")[0] ?? "pt";
+    const [option, setOption] = useState(language);
 
     return (
         <SelectContext.Provider value={{ option, setOption }}>
