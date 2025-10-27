@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Pagination from './utils/Pagination';
 import Loading from './utils/Loading';
@@ -30,27 +30,16 @@ const Projects = (): JSX.Element => {
     const [loading, setLoading] = useState(false);
     const [repositories, setRepositories] = useState<Array<Repository>>([]);
 
-    const updateRepositories = useCallback((): void => {
+    useEffect((): void => {
         setLoading(true);
 
-        const promise = new Promise((resolve) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://api.github.com/users/dheovani/repos");
-
-            xhr.responseType = 'json';
-            xhr.onload = () => resolve(xhr.response);
-
-            xhr.send();
-        });
-
-        promise.then(response => {
-            const repos: Array<Repository> = response as Array<Repository>;
-            setRepositories(repos);
-            setLoading(false);
-        });
+        fetch("https://api.github.com/users/dheovani/repos")
+            .then(async response => {
+                const repos: Array<Repository> = await response.json() as Array<Repository>;
+                setRepositories(repos);
+                setLoading(false);
+            });
     }, [setRepositories, setLoading]);
-
-    useEffect(() => updateRepositories(), [updateRepositories]);
 
     const RepositoryCards = useMemo(() => repositories.map((rep, index) => (
         <Card id={rep.id} name={rep.name} key={index} desc={rep.description}>
