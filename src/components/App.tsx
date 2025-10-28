@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import About from "./About";
@@ -25,7 +25,7 @@ export default () => {
 	const locale = messages[option] ? option : "pt";
 
 	return (
-		<BrowserRouter basename="/Portfolio">
+		<Router>
 			<IntlProvider locale={locale} messages={messages[locale]}>
 				<Navbar />
 				<div className="p-4">
@@ -39,6 +39,6 @@ export default () => {
 					</Routes>
 				</div>
 			</IntlProvider>
-		</BrowserRouter>
+		</Router>
 	);
 };
