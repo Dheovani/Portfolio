@@ -77,6 +77,10 @@
 	color: #fff;
 }
 
+.pagination-buttons {
+	display: none;
+}
+
 .pagination li {
 	background-color: rgba(17, 25, 40, 0.75);
 	display: flex;
@@ -111,12 +115,15 @@
 		font-size: 2rem;
 		margin-bottom: 8px;
 	}
+	
 	.items-container {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
 	section {
 		padding: 20px 0px;
 	}
+
 	h1 {
 		font-size: 30px;
 		line-height: 40px;
@@ -127,6 +134,7 @@
 	.items-container {
 		grid-template-columns: 1fr;
 	}
+
 	.card {
 		max-width: 280px;
 	}
@@ -139,7 +147,33 @@
 }
 
 @media (max-width: 768px) {
+	.projects {
+        padding: 0 20px;
+    }
+
+	.card {
+		max-width: 250px;
+	}
+
 	.card p {
 		font-size: 0.875rem;
+	}
+
+	.pagination {
+		max-width: 80%;
+        margin: auto;
+	}
+
+	.pagination-buttons {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.pagination-buttons svg {
+		cursor: pointer;
+	}
+
+	.pagination li {
+		display: none;
 	}
 }

@@ -47,7 +47,11 @@
     margin: .5%;
 }
 
-@media(max-width: 400px) {
+@media (max-width: 768px) {
+    .about-me {
+        padding: 0 20px;
+    }
+
     .paragraphs p {
         font-size: small;
     }

@@ -17,6 +17,7 @@
     padding: .5rem;
     position: fixed;
     right: .5rem;
+    z-index: 999;
 }
 
 .switch-icon {
@@ -62,4 +63,17 @@
 
 .vertical-timeline-element-content.bounce-in {
     background-color: rgba(17, 25, 40, 0.75) !important;
+}
+
+@media (max-width: 768px) {
+    .skills {
+        width: 90%;
+        padding: 0;
+    }
+
+    .switch-container {
+        position: fixed;
+        padding: 0;
+        right: .5rem;
+    }
 }

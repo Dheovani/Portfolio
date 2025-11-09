@@ -142,10 +142,20 @@
 }
 
 @media (max-width: 768px) {
+    .certifications {
+        padding: 0 20px;
+    }
+
     .carousel-arrow {
         font-size: 2rem;
-        left: -40px;
-        right: -40px;
+    }
+
+    .carousel-arrow.left {
+        left: -5px;
+    }
+
+    .carousel-arrow.right {
+        right: -5px;
     }
 
     .carousel-close {
@@ -157,4 +167,9 @@
         max-width: 90vw;
         max-height: 70vh;
     }
+
+    .pagination {
+		max-width: 80%;
+        margin: auto;
+	}
 }

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FormattedMessage } from "react-intl";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface PaginationInterface {
     id: string,
@@ -74,9 +75,16 @@ const Pagination = ({ id, title, items, enforceRows, enforceCols }: PaginationIn
                         </li>
                     ))
                 }
+
+                <div className="pagination-buttons">
+                    <FaChevronLeft  onClick={setPage.bind(null, (page - 1))}
+                        style={page == 1 ? { pointerEvents: 'none', opacity: 0.5 } : undefined} />
+                    <FaChevronRight onClick={setPage.bind(null, (page + 1))}
+                        style={page == pageNumbers.length ? { pointerEvents: 'none', opacity: 0.5 } : undefined} />
+                </div>
             </ul>
         );
-    }, [calculatePageNumbers, handlePageChange, page]);
+    }, [calculatePageNumbers, handlePageChange, setPage, page]);
     
     return (
         <div className={id} id={id}>

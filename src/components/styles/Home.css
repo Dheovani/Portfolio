@@ -65,3 +65,29 @@ footer img:hover {
 	margin: 1%;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.45);
 }
+
+@media (max-width: 768px) {
+	.home {
+		padding: 5px 20px;
+	}
+
+	.home-text {
+		text-align: center;
+	}
+
+	.home-text p {
+		margin: auto;
+	}
+
+	.home-container {
+		padding: 0;
+	}
+
+	.home-image {
+		display: none;
+	}
+
+	footer {
+		display: none;
+	}
+}
