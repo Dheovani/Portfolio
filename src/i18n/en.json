@@ -19,6 +19,8 @@
     "skills.formation.title": "Academic Education",
     "skills.formation.school": "<h1>High School</h1><h3>E.e.b. Profª Jandira D'Avila</h3>",
     "skills.formation.bachelor": "<h1>Bachelor in Software Engineering</h1><h3>University of Joinville Region - UNIVILLE, Joinville - Santa Catarina</h3>",
+    "skills.formation.postgraduate.architecture": "<h1>Postgraduate Degree in Software Architecture</h1><h3>FACUVALE University Center</h3>",
+    "skills.formation.postgraduate.ai": "<h1>Postgraduate Degree in Artificial Intelligence and Data Analysis</h1><h3>FACUVALE University Center</h3>",
     "skills.experience.title": "Professional Experience",
     "skills.experience.dev": "<h1>Fullstack Software Developer</h1><h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>",
     "skills.experience.engineer": "<h1>Software Engineer</h1><h3>SoftExpert - Software for Excellence, Joinville - Santa Catarina</h3>",

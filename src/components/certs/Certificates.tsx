@@ -7,6 +7,8 @@ import sbmcs from "../../assets/Microsserviços do 0 com Spring.png";
 import rctmt from "../../assets/React do Zero a Maestria.png";
 import c_cpp from "../../assets/C e C++ - Iniciante ao avançado.png";
 import soft_eng from "../../assets/Bacharel em Engenharia de Software.png";
+import arq_soft from "../../assets/Pós-graduação Lato Sensu em Arquitetura de Software.jpg";
+import ai_data from "../../assets/Pós-graduação Lato Sensu em Inteligência Artificial e Análise de Dados.jpg";
 
 export const Certificates = [
     {
@@ -44,5 +46,13 @@ export const Certificates = [
     {
         image: soft_eng,
         alt: 'software_engineering_bachelor'
+    },
+    {
+        image: arq_soft,
+        alt: 'postgraduate_in_software_architecture'
+    },
+    {
+        image: ai_data,
+        alt: 'postgraduate_in_ai_and_data_analysis'
     }
 ];

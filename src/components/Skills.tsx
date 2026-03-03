@@ -38,6 +38,28 @@ const Skills = (): JSX.Element => {
                             h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
                         }} />
                 </VerticalTimelineElement>
+                <VerticalTimelineElement
+                    className="vertical-timeline-element--formation"
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
+                    contentStyle={{ background:"#15171C", color:"white" }}
+                    icon={<FaGraduationCap />}
+                    date="2025 - 2026">
+                        <FormattedMessage id="skills.formation.postgraduate.architecture" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                    className="vertical-timeline-element--formation"
+                    iconStyle={{ background:"#2b0040", color:"#cbbcff" }}
+                    contentStyle={{ background:"#15171C", color:"white" }}
+                    icon={<FaGraduationCap />}
+                    date="2025 - 2026">
+                        <FormattedMessage id="skills.formation.postgraduate.ai" values={{
+                            h1: (chunks: React.ReactNode) => <h1>{chunks}</h1>,
+                            h3: (chunks: React.ReactNode) => <h3>{chunks}</h3>
+                        }} />
+                </VerticalTimelineElement>
             </VerticalTimeline>
         </div>
     ), []);
