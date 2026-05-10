@@ -11,7 +11,7 @@ export const messages: Record<Locale, Record<string, string>> = {
     "navbar.certifications": "Certificados",
     "home.greeting": "Olá, eu sou <b>Dheovani Xavier</b>",
     "home.description":
-      "Desenvolvedor full-stack especializado em arquiteturas baseadas em microsserviços.<br>Apaixonado por tecnologia, inovação e aprendizado contínuo.<br>Sou desenvolvedor backend com experiência em <b>PHP, Java e JavaScript</b>, entre outros,<br>além de sólidos conhecimentos em bancos de dados SQL e arquiteturas de microsserviços.<br>Busco sempre aprimorar minhas habilidades e contribuir com soluções de alto desempenho.",
+      "<p>Desenvolvedor full-stack especializado em arquiteturas baseadas em microsserviços, apaixonado por tecnologia, inovação e aprendizado contínuo.</p><p>Atuo principalmente no backend, com experiência em <b>PHP, Java e JavaScript</b>, além de sólidos conhecimentos em bancos de dados SQL e arquiteturas distribuídas.</p><p>Busco sempre aprimorar minhas habilidades e contribuir com soluções de alto desempenho.</p>",
     "about.title": "Sobre mim",
     "about.title.intro": "Introdução",
     "about.intro":
@@ -50,7 +50,7 @@ export const messages: Record<Locale, Record<string, string>> = {
     "navbar.certifications": "Certifications",
     "home.greeting": "Hello, I am <b>Dheovani Xavier</b>",
     "home.description":
-      "Full-stack developer specializing in microservices-based architectures.<br>Passionate about technology, innovation, and continuous learning.<br>I am a backend developer with experience in <b>PHP, Java, and JavaScript</b>, among others,<br>along with solid knowledge in SQL databases and microservices architectures.<br>I always strive to enhance my skills and contribute high-performance solutions.",
+      "<p>Full-stack developer specializing in microservices-based architectures, passionate about technology, innovation, and continuous learning.</p><p>I work mainly on the backend, with experience in <b>PHP, Java, and JavaScript</b>, along with solid knowledge in SQL databases and distributed architectures.</p><p>I always strive to enhance my skills and contribute high-performance solutions.</p>",
     "about.title": "About Me",
     "about.title.intro": "Introduction",
     "about.intro":
@@ -89,7 +89,7 @@ export const messages: Record<Locale, Record<string, string>> = {
     "navbar.certifications": "Certificados",
     "home.greeting": "Hola, soy <b>Dheovani Xavier</b>",
     "home.description":
-      "Desarrollador full-stack especializado en arquitecturas basadas en microservicios.<br>Apasionado por la tecnología, la innovación y el aprendizaje continuo.<br>Soy desarrollador backend con experiencia en <b>PHP, Java y JavaScript</b>, entre otros,<br>además de sólidos conocimientos en bases de datos SQL y arquitecturas de microservicios.<br>Siempre busco mejorar mis habilidades y contribuir con soluciones de alto rendimiento.",
+      "<p>Desarrollador full-stack especializado en arquitecturas basadas en microservicios, apasionado por la tecnología, la innovación y el aprendizaje continuo.</p><p>Trabajo principalmente en backend, con experiencia en <b>PHP, Java y JavaScript</b>, además de sólidos conocimientos en bases de datos SQL y arquitecturas distribuidas.</p><p>Siempre busco mejorar mis habilidades y contribuir con soluciones de alto rendimiento.</p>",
     "about.title": "Sobre mí",
     "about.title.intro": "Introducción",
     "about.intro":

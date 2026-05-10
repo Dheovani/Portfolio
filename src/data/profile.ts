@@ -7,5 +7,3 @@ export const profile = {
   description:
     "Portfolio de Dheovani Xavier, desenvolvedor full-stack especializado em backend, microsserviços e bancos de dados SQL.",
 };
-
-export const techStack = ["PHP", "Java", "TypeScript", "C++", "C", "Python", "Git"];
