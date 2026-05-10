@@ -48,6 +48,7 @@ const encodedMessages = JSON.stringify(messages);
     });
 
     document.title = dictionary["site.title"] || document.title;
+    window.dispatchEvent(new CustomEvent("portfolio:locale-change", { detail: locale }));
     window.renderProjectsForLocale?.();
   }
 
