@@ -1,0 +1,112 @@
+---
+import { certificates } from "../data/certificates";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="certifications" class="section container-page">
+  <h2 class="section-title" data-i18n="certifications.title">{t["certifications.title"]}</h2>
+  <div id="certificates-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-page-size="6">
+    {certificates.map((certificate, index) => (
+      <button class="content-card flex aspect-[4/3] items-center justify-center p-3" type="button" data-certificate-index={index}>
+        <img
+          src={certificate.image.src}
+          width={certificate.image.width}
+          height={certificate.image.height}
+          alt={certificate.alt}
+          class="max-h-full max-w-full rounded-md object-contain"
+          loading="lazy"
+        />
+      </button>
+    ))}
+  </div>
+  <div id="certificates-pagination" class="mt-8 flex justify-center gap-2"></div>
+</section>
+
+<div id="certificate-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-5 backdrop-blur-md" role="dialog" aria-modal="true">
+  <button id="modal-close" class="control-button absolute right-5 top-5" type="button" aria-label="Close">x</button>
+  <button id="modal-prev" class="control-button absolute left-5 top-1/2" type="button" aria-label="Previous">Prev</button>
+  <img id="modal-image" class="max-h-[82vh] max-w-[84vw] rounded-lg object-contain shadow-2xl" alt="" />
+  <button id="modal-next" class="control-button absolute right-5 top-1/2" type="button" aria-label="Next">Next</button>
+</div>
+
+<script>
+  // @ts-nocheck
+  function setupCertificatePagination() {
+    const grid = document.querySelector("#certificates-grid");
+    const pager = document.querySelector("#certificates-pagination");
+    if (!grid || !pager) return;
+
+    const items = Array.from(grid.children);
+    const pageSize = Number(grid.dataset.pageSize || 6);
+
+    function render(pageNumber) {
+      const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+      const page = Math.min(Math.max(pageNumber, 1), totalPages);
+
+      items.forEach((item, index) => {
+        item.classList.toggle("hidden", index < (page - 1) * pageSize || index >= page * pageSize);
+      });
+
+      pager.innerHTML = "";
+      for (let number = 1; number <= totalPages; number += 1) {
+        const button = document.createElement("button");
+        button.className = "pagination-button";
+        button.type = "button";
+        button.textContent = String(number);
+        if (number === page) button.setAttribute("aria-current", "page");
+        button.addEventListener("click", () => render(number));
+        pager.appendChild(button);
+      }
+    }
+
+    render(1);
+  }
+
+  function setupCertificateModal() {
+    const buttons = Array.from(document.querySelectorAll("[data-certificate-index]"));
+    const modal = document.querySelector("#certificate-modal");
+    const image = document.querySelector("#modal-image");
+    let activeIndex = 0;
+
+    function open(index) {
+      activeIndex = index;
+      const img = buttons[activeIndex]?.querySelector("img");
+      if (!img || !modal || !(image instanceof HTMLImageElement)) return;
+      image.src = img.src;
+      image.alt = img.alt;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function close() {
+      modal?.classList.add("hidden");
+      modal?.classList.remove("flex");
+    }
+
+    function rotate(direction) {
+      const nextIndex = (activeIndex + direction + buttons.length) % buttons.length;
+      open(nextIndex);
+    }
+
+    buttons.forEach((button, index) => button.addEventListener("click", () => open(index)));
+    document.querySelector("#modal-close")?.addEventListener("click", close);
+    document.querySelector("#modal-prev")?.addEventListener("click", () => rotate(-1));
+    document.querySelector("#modal-next")?.addEventListener("click", () => rotate(1));
+    modal?.addEventListener("click", (event) => {
+      if (event.target === modal) close();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+      if (!modal?.classList.contains("hidden") && event.key === "ArrowLeft") rotate(-1);
+      if (!modal?.classList.contains("hidden") && event.key === "ArrowRight") rotate(1);
+    });
+  }
+
+  setupCertificatePagination();
+  setupCertificateModal();
+</script>

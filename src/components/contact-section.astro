@@ -1,0 +1,35 @@
+---
+import { emailLinks, socialLinks } from "../data/contact";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="contact" class="section container-page">
+  <h2 class="section-title" data-i18n="contact.title">{t["contact.title"]}</h2>
+  <div class="mx-auto grid max-w-5xl gap-8">
+    <div>
+      <h3 class="mb-4 text-center text-xl font-bold" data-i18n="contact.social_media">{t["contact.social_media"]}</h3>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {socialLinks.map((link) => (
+          <a class="content-card text-center font-bold no-underline" href={link.href} target="_blank" rel="nofollow">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h3 class="mb-4 text-center text-xl font-bold" data-i18n="contact.mail">{t["contact.mail"]}</h3>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {emailLinks.map((link) => (
+          <a class="content-card text-center font-bold no-underline" href={link.href}>
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+---
+interface Props {
+  messages: Record<string, Record<string, string>>;
+}
+
+const { messages } = Astro.props;
+const encodedMessages = JSON.stringify(messages);
+---
+
+<script is:inline define:vars={{ encodedMessages }}>
+  window.PORTFOLIO_MESSAGES = JSON.parse(encodedMessages);
+</script>
+
+<script>
+  // @ts-nocheck
+  const messages = window.PORTFOLIO_MESSAGES;
+  const localeSelect = document.querySelector("#locale-select");
+  const themeToggle = document.querySelector("#theme-toggle");
+  const menuToggle = document.querySelector("#menu-toggle");
+  const mobileMenu = document.querySelector("#mobile-menu");
+
+  const getLocale = () => localStorage.getItem("locale") || "pt";
+  const getTheme = () => localStorage.getItem("theme") || "dark";
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }
+
+  function applyLocale(locale) {
+    const dictionary = messages[locale] || messages.pt;
+    document.documentElement.lang = locale;
+    localStorage.setItem("locale", locale);
+
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      const key = node.getAttribute("data-i18n");
+      if (key && dictionary[key]) node.textContent = dictionary[key];
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+      const key = node.getAttribute("data-i18n-html");
+      if (key && dictionary[key]) node.innerHTML = dictionary[key];
+    });
+
+    document.querySelectorAll("[data-locale-field]").forEach((node) => {
+      const value = JSON.parse(node.getAttribute("data-locale-field") || "{}");
+      node.textContent = value[locale] || value.pt || "";
+    });
+
+    document.title = dictionary["site.title"] || document.title;
+    window.renderProjectsForLocale?.();
+  }
+
+  function setupNavSpy() {
+    const links = document.querySelectorAll("[data-nav-link]");
+    const sections = Array.from(document.querySelectorAll("main > section"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  localeSelect?.addEventListener("change", (event) => applyLocale(event.target.value));
+  themeToggle?.addEventListener("click", () => setTheme(getTheme() === "dark" ? "light" : "dark"));
+  menuToggle?.addEventListener("click", () => mobileMenu?.classList.toggle("hidden"));
+  document.querySelectorAll("[data-mobile-link]").forEach((link) => {
+    link.addEventListener("click", () => mobileMenu?.classList.add("hidden"));
+  });
+
+  setTheme(getTheme());
+  if (localeSelect) localeSelect.value = getLocale();
+  applyLocale(getLocale());
+  setupNavSpy();
+</script>

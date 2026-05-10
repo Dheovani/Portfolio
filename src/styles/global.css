@@ -110,6 +110,18 @@
     color: var(--accent);
   }
 
+  .theme-icon-light {
+    @apply hidden;
+  }
+
+  html[data-theme="light"] .theme-icon-dark {
+    @apply hidden;
+  }
+
+  html[data-theme="light"] .theme-icon-light {
+    @apply block;
+  }
+
   .primary-link {
     @apply inline-flex min-h-11 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold no-underline;
     color: #fff;

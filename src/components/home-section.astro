@@ -1,0 +1,36 @@
+---
+import { profile, techStack } from "../data/profile";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="home" class="section container-page min-h-[calc(100vh-4rem)]">
+  <div class="grid min-h-[68vh] items-center gap-10 lg:grid-cols-[1fr_360px]">
+    <div class="max-w-3xl text-center lg:text-left">
+      <p class="mb-5 text-3xl font-bold leading-tight sm:text-5xl" data-i18n-html="home.greeting" set:html={t["home.greeting"]} />
+      <p class="text-base leading-8 sm:text-lg" style="color: var(--muted)" data-i18n-html="home.description" set:html={t["home.description"]} />
+    </div>
+    <div class="hidden justify-end lg:flex">
+      <img
+        src={profile.image.src}
+        width={profile.image.width}
+        height={profile.image.height}
+        alt={profile.name}
+        class="aspect-square max-h-[420px] w-full max-w-[360px] rounded-full object-cover shadow-2xl"
+        style="transform: scaleX(-1); box-shadow: 0 0 28px color-mix(in srgb, var(--accent) 34%, transparent)"
+      />
+    </div>
+  </div>
+
+  <div class="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3">
+    {techStack.map((tech) => (
+      <span class="rounded-md px-3 py-2 text-sm font-bold shadow-md" style="background: var(--panel); border: 1px solid var(--border); color: var(--accent-text)">
+        {tech}
+      </span>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import Timeline from "./timeline.astro";
+import { experience, formation } from "../data/timeline";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="skills" class="section container-page">
+  <div class="mb-8 flex flex-wrap items-center justify-center gap-3">
+    <button class="pagination-button" type="button" data-skill-tab="formation" aria-current="page" data-i18n="skills.toggle.formation">
+      {t["skills.toggle.formation"]}
+    </button>
+    <button class="pagination-button" type="button" data-skill-tab="experience" data-i18n="skills.toggle.experience">
+      {t["skills.toggle.experience"]}
+    </button>
+  </div>
+
+  <div data-skill-panel="formation">
+    <h2 class="section-title" data-i18n="skills.formation.title">{t["skills.formation.title"]}</h2>
+    <Timeline items={formation} />
+  </div>
+
+  <div class="hidden" data-skill-panel="experience">
+    <h2 class="section-title" data-i18n="skills.experience.title">{t["skills.experience.title"]}</h2>
+    <Timeline items={experience} />
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll("[data-skill-tab]");
+  const panels = document.querySelectorAll("[data-skill-panel]");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.getAttribute("data-skill-tab");
+      tabs.forEach((item) => item.removeAttribute("aria-current"));
+      tab.setAttribute("aria-current", "page");
+      panels.forEach((panel) => {
+        panel.classList.toggle("hidden", panel.getAttribute("data-skill-panel") !== target);
+      });
+    });
+  });
+</script>

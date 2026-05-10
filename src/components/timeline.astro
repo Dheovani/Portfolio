@@ -1,0 +1,19 @@
+---
+import type { TimelineItem } from "../data/timeline";
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline-list">
+  {items.map((item) => (
+    <article class="timeline-item">
+      <p class="mb-2 text-sm font-bold" style="color: var(--accent)">{item.date}</p>
+      <h3 class="text-xl font-bold" data-locale-field={JSON.stringify(item.title)}>{item.title.pt}</h3>
+      <p class="mt-2 leading-7" style="color: var(--muted)" data-locale-field={JSON.stringify(item.place)}>{item.place.pt}</p>
+    </article>
+  ))}
+</div>

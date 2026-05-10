@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+import { languages } from "../data/locales";
+import { navigationLinks } from "../data/navigation";
+
+interface Props {
+  t: Record<string, string>;
+  locale: string;
+}
+
+const { t, locale } = Astro.props;
+---
+
+<nav class="sticky top-0 z-50 border-b border-[color:var(--border)] bg-[color-mix(in_srgb,var(--bg)_78%,transparent)] shadow-lg backdrop-blur-xl">
+  <div class="container-page flex min-h-16 items-center justify-between gap-4">
+    <a href="#home" class="nav-link text-lg sm:text-xl" data-nav-link data-i18n="navbar.portfolio">
+      {t["navbar.portfolio"]}
+    </a>
+
+    <div class="hidden items-center gap-2 lg:flex">
+      {navigationLinks.map((link) => (
+        <a href={link.href} class="nav-link" data-nav-link data-i18n={link.labelKey}>
+          {t[link.labelKey]}
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-2">
+      <select
+        id="locale-select"
+        class="h-10 rounded-md border px-3 text-sm font-semibold outline-none"
+        style="background: var(--panel); border-color: var(--border); color: var(--text)"
+        aria-label="Language"
+      >
+        {languages.map((language) => (
+          <option value={language.value} selected={language.value === locale}>{language.label}</option>
+        ))}
+      </select>
+      <button id="theme-toggle" class="control-button" type="button" aria-label={t["theme.toggle"]} title={t["theme.toggle"]}>
+        <Icon name="mdi:weather-night" class="theme-icon theme-icon-dark h-5 w-5" aria-hidden="true" />
+        <Icon name="mdi:white-balance-sunny" class="theme-icon theme-icon-light h-5 w-5" aria-hidden="true" />
+      </button>
+      <button id="menu-toggle" class="control-button lg:hidden" type="button" aria-label={t["menu.toggle"]} title={t["menu.toggle"]}>
+        <span>Menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="container-page hidden pb-4 lg:hidden">
+    <div class="grid gap-2">
+      {navigationLinks.map((link) => (
+        <a href={link.href} class="nav-link" data-mobile-link data-i18n={link.labelKey}>
+          {t[link.labelKey]}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

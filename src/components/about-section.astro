@@ -1,0 +1,46 @@
+---
+import { aboutSections } from "../data/about";
+
+interface Props {
+  t: Record<string, string>;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="about" class="section container-page">
+  <h2 class="section-title" data-i18n="about.title">{t["about.title"]}</h2>
+  <div class="mx-auto grid max-w-5xl gap-4">
+    {aboutSections.map((section) => (
+      <article class="content-card">
+        <button
+          class="flex w-full items-center justify-between gap-4 text-left text-lg font-bold"
+          type="button"
+          data-collapse-trigger
+          aria-expanded={section.initiallyOpen ? "true" : "false"}
+        >
+          <span data-i18n={section.titleKey}>{t[section.titleKey]}</span>
+          <span class="text-2xl leading-none" aria-hidden="true">+</span>
+        </button>
+        <div
+          class={section.initiallyOpen ? "mt-4 leading-7" : "mt-4 hidden leading-7"}
+          style="color: var(--muted)"
+          data-collapse-panel
+          data-i18n-html={section.bodyKey}
+          set:html={t[section.bodyKey]}
+        />
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-collapse-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const panel = trigger.parentElement?.querySelector("[data-collapse-panel]");
+      const expanded = trigger.getAttribute("aria-expanded") === "true";
+      trigger.setAttribute("aria-expanded", String(!expanded));
+      panel?.classList.toggle("hidden", expanded);
+    });
+  });
+</script>
