@@ -319,7 +319,7 @@
   }
 
   .pagination-button {
-    @apply inline-flex h-10 min-w-10 items-center justify-center rounded-md border px-3 text-sm font-bold;
+    @apply inline-flex h-10 min-w-10 cursor-pointer items-center justify-center rounded-md border px-3 text-sm font-bold;
     color: var(--text);
     border-color: var(--border);
     background: var(--panel);
