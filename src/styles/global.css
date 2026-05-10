@@ -334,4 +334,17 @@
   .pagination-button:disabled {
     @apply pointer-events-none opacity-40;
   }
+
+  .certificate-preview {
+    @apply cursor-pointer border-0 bg-transparent;
+  }
+
+  .certificate-preview img {
+    transition: transform 220ms ease, filter 220ms ease;
+  }
+
+  .certificate-preview:hover img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.28));
+  }
 }

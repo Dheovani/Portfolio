@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { certificates } from "../data/certificates";
 
 interface Props {
@@ -12,7 +13,7 @@ const { t } = Astro.props;
   <h2 class="section-title" data-i18n="certifications.title">{t["certifications.title"]}</h2>
   <div id="certificates-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-page-size="6">
     {certificates.map((certificate, index) => (
-      <button class="content-card flex aspect-[4/3] items-center justify-center p-3" type="button" data-certificate-index={index}>
+      <button class="certificate-preview flex aspect-[4/3] items-center justify-center p-3" type="button" data-certificate-index={index}>
         <img
           src={certificate.image.src}
           width={certificate.image.width}
@@ -28,10 +29,14 @@ const { t } = Astro.props;
 </section>
 
 <div id="certificate-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-5 backdrop-blur-md" role="dialog" aria-modal="true">
-  <button id="modal-close" class="control-button absolute right-5 top-5" type="button" aria-label="Close">x</button>
-  <button id="modal-prev" class="control-button absolute left-5 top-1/2" type="button" aria-label="Previous">Prev</button>
+  <button id="modal-close" class="control-button cursor-pointer absolute right-5 top-5" type="button" aria-label="Close">x</button>
+  <button id="modal-prev" class="control-button cursor-pointer absolute left-5 top-1/2" type="button" aria-label="Previous">
+    <Icon name="mdi:arrow-left" class="h-5 w-5" aria-hidden="true" />
+  </button>
   <img id="modal-image" class="max-h-[82vh] max-w-[84vw] rounded-lg object-contain shadow-2xl" alt="" />
-  <button id="modal-next" class="control-button absolute right-5 top-1/2" type="button" aria-label="Next">Next</button>
+  <button id="modal-next" class="control-button cursor-pointer absolute right-5 top-1/2" type="button" aria-label="Next">
+    <Icon name="mdi:arrow-right" class="h-5 w-5" aria-hidden="true" />
+  </button>
 </div>
 
 <script>
