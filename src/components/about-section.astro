@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { aboutSections } from "../data/about";
 
 interface Props {
@@ -19,16 +20,20 @@ const { t } = Astro.props;
           data-collapse-trigger
           aria-expanded={section.initiallyOpen ? "true" : "false"}
         >
-          <span data-i18n={section.titleKey}>{t[section.titleKey]}</span>
-          <span class="text-2xl leading-none" aria-hidden="true">+</span>
+          <span class="collapse-title" data-i18n={section.titleKey}>{t[section.titleKey]}</span>
+          <span class="collapse-icon" aria-hidden="true">
+            <Icon name="mdi:keyboard-arrow-down" class="collapse-icon-collapsed h-6 w-6" />
+            <Icon name="mdi:keyboard-arrow-right" class="collapse-icon-expanded h-6 w-6" />
+          </span>
         </button>
         <div
-          class={section.initiallyOpen ? "mt-4 leading-7" : "mt-4 hidden leading-7"}
+          class="collapse-panel"
           style="color: var(--muted)"
+          aria-hidden={section.initiallyOpen ? "false" : "true"}
           data-collapse-panel
-          data-i18n-html={section.bodyKey}
-          set:html={t[section.bodyKey]}
-        />
+        >
+          <div class="collapse-panel-content" data-i18n-html={section.bodyKey} set:html={t[section.bodyKey]} />
+        </div>
       </article>
     ))}
   </div>
@@ -36,11 +41,15 @@ const { t } = Astro.props;
 
 <script>
   document.querySelectorAll("[data-collapse-trigger]").forEach((trigger) => {
+    const panel = trigger.parentElement?.querySelector("[data-collapse-panel]");
+    const expanded = trigger.getAttribute("aria-expanded") === "true";
+    panel?.setAttribute("aria-hidden", String(!expanded));
+
     trigger.addEventListener("click", () => {
       const panel = trigger.parentElement?.querySelector("[data-collapse-panel]");
       const expanded = trigger.getAttribute("aria-expanded") === "true";
       trigger.setAttribute("aria-expanded", String(!expanded));
-      panel?.classList.toggle("hidden", expanded);
+      panel?.setAttribute("aria-hidden", String(expanded));
     });
   });
 </script>
